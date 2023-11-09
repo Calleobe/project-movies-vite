@@ -1,57 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap");
+
+body {
+  font-family: "Bebas Neue", sans-serif;
+}
+
 .MoviesList {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.MoviesList a {
+  width: 80%;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (min-width: 370px) {
   .MoviesList a {
-    width: 80%;
-    position: relative;
-    color: #fff;
-    text-decoration: none;
+    width: 50%;
   }
-  
-  @media (min-width: 370px) {
-    .MoviesList a {
-      width: 50%;
-    }
+}
+
+@media (min-width: 570px) {
+  .MoviesList a {
+    width: 33.33%;
   }
-  
-  @media (min-width: 570px) {
-    .MoviesList a {
-      width: 33.33%;
-    }
+}
+
+@media (min-width: 820px) {
+  .MoviesList a {
+    width: 25%;
   }
-  
-  @media (min-width: 820px) {
-    .MoviesList a {
-      width: 25%;
-    }
-  }
-  
-  .MoviesList a img {
-    width: 100%;
-  }
-  
-  .MoviesList .MovieDetails {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0,0,0,0.75);
-    display: none;
-    padding: 20px;
-  }
-  
-  .MoviesList .MovieDetails h1 {
-    margin-top: auto;
-    margin-bottom: 0;
-  }
-  
-  .MoviesList a:hover .MovieDetails {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-  
+}
+
+.MoviesList a img {
+  width: 100%;
+}
+
+.MoviesList .MovieDetails {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: none;
+  padding: 20px;
+}
+
+.MoviesList .MovieDetails h1 {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.MoviesList a:hover .MovieDetails {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.movie-list-dropdown {
+  font-size: 16px;
+  padding: 10px 20px;
+  border: 2px solid #304ffe;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 20px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.movie-list-dropdown:hover,
+.movie-list-dropdown:focus {
+  border-color: #1a237e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.movie-list-dropdown option {
+  padding: 10px;
+}
