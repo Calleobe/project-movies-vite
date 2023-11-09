@@ -17,7 +17,11 @@ const ProductionDetail = ({ apiKey }) => {
           `https://api.themoviedb.org/3/company/${companyId}?api_key=${apiKey}`
         );
         if (!detailsResponse.ok) {
-          throw new Error("Network response was not ok for company details");
+          if (detailsResponse.status === 404) {
+            navigate("/404");
+          } else {
+            throw new Error("Network response was not ok");
+          }
         }
         const detailsData = await detailsResponse.json();
         setCompanyDetails(detailsData);
@@ -26,7 +30,11 @@ const ProductionDetail = ({ apiKey }) => {
           `https://api.themoviedb.org/3/company/${companyId}/movies?api_key=${apiKey}`
         );
         if (!moviesResponse.ok) {
-          throw new Error("Network response was not ok for company movies");
+          if (moviesResponse.status === 404) {
+            navigate("/404");
+          } else {
+            throw new Error("Network response was not ok");
+          }
         }
         const moviesData = await moviesResponse.json();
         setCompanyMovies(moviesData.results);
@@ -51,7 +59,7 @@ const ProductionDetail = ({ apiKey }) => {
       <div>
         {companyDetails?.logo_path && (
           <img
-            src={`https://image.tmdb.org/t/p/w300${companyDetails.logo_path}`}
+            src={`https://image.tmdb.org/t/p/w300${companyDetails.logo_path}?api_key=${apiKey}`}
             alt={companyDetails.name}
           />
         )}
@@ -75,7 +83,7 @@ const ProductionDetail = ({ apiKey }) => {
 
       {companyDetails?.parent_company && (
         <p>
-          <strong>Parent Company:</strong> {companyDetails.parent_company}
+          <strong>Parent Company:</strong> {companyDetails.parent_company.name}
         </p>
       )}
 
