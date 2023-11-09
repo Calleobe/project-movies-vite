@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import "../css/MovieDetail.css"
+import { useParams, useNavigate } from "react-router-dom";
+import "../css/MovieDetail.css";
 
 const MovieDetail = ({ apiKey }) => {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
@@ -17,7 +18,7 @@ const MovieDetail = ({ apiKey }) => {
 
         if (!response.ok) {
           if (response.status === 404) {
-            throw new Error("Movie not found");
+            navigate("/404");
           } else {
             throw new Error("Network response was not ok");
           }
@@ -64,4 +65,3 @@ const MovieDetail = ({ apiKey }) => {
 };
 
 export default MovieDetail;
-
