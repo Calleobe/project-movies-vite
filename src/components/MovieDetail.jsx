@@ -42,23 +42,40 @@ const MovieDetail = ({ apiKey }) => {
   // Calculate the rating with one decimal point
   const rating = movie.vote_average.toFixed(1);
 
+  <div className="production-companies">
+    {movie?.production_companies?.map((company) => (
+      <Link key={company.id} to={`/production/${company.id}`}>
+        {company.name}
+      </Link>
+    ))}
+  </div>;
   return (
     <div className="MovieDetail">
       <Link to="/" className="backLink">
         Back to Movies
       </Link>
-      <h1>{movie.title}</h1>
+
+      <h1>{movie?.title}</h1>
       <img
-        src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
-        alt={movie.title}
+        src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`}
+        alt={movie?.title}
       />
-      <p>{movie.overview}</p>
+      <p>{movie?.overview}</p>
 
       <div>
-        <strong>Release Date:</strong> {movie.release_date}
+        <strong>Release Date:</strong> {movie?.release_date}
       </div>
       <div>
         <strong>Rating:</strong> {rating} &#11088; {/* Star emoji */}
+      </div>
+
+      <div className="production-companies">
+        <strong>Production companies:</strong>
+        {movie?.production_companies?.map((company) => (
+          <div key={company.id}>
+            <Link to={`/production/${company.id}`}>{company.name}</Link>
+          </div>
+        ))}
       </div>
     </div>
   );

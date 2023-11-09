@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap");
+
+.ProdList {
+  padding: 16px;
+  text-align: center;
+
+  /* Mobile-first styles */
+  background-color: #f5f5f5;
+  font-size: 16px;
+}
+
+.ProdList h1 {
+  font-size: 24px;
+  margin: 0;
+  padding-top: 20px;
+}
+
+.ProdList img {
+  max-width: 100%;
+  height: auto;
+}
+
+.ProdList p {
+  font-family: "Roboto", sans-serif;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.ProdList a {
+  font-family: "Roboto", sans-serif;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+/* Styles for larger screens (e.g., tablets or desktops) */
+@media (min-width: 768px) {
+  .ProdList {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 32px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .ProdList h1 {
+    font-size: 32px;
+  }
+
+  .ProdList p {
+    font-size: 20px;
+  }
+}
+
+/* CSS for the "Back" button */
+.backLink {
+  display: inline-block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #0073e6; /* Change to your preferred button color */
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.backLink:hover {
+  background-color: #005bb9; /* Change to your preferred button color on hover */
+}
+
+.ProdList ul {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+
+.ProdList li {
+  margin-bottom: 10px; /* Add some space between list items */
+}
