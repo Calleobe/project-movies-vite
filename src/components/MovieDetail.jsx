@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import "../css/MovieDetail.css"
 
@@ -16,7 +16,11 @@ const MovieDetail = ({ apiKey }) => {
         );
 
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          if (response.status === 404) {
+            throw new Error("Movie not found");
+          } else {
+            throw new Error("Network response was not ok");
+          }
         }
 
         const data = await response.json();
