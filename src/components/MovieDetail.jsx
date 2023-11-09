@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom"; // Import useNavigate
 import "../css/MovieDetail.css";
 
 const MovieDetail = ({ apiKey }) => {
@@ -36,7 +36,7 @@ const MovieDetail = ({ apiKey }) => {
     fetchMovie();
   }, [id, apiKey]);
 
-  if (loading) return <div className="LoadingSpinner"></div>;
+  if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   // Calculate the rating with one decimal point
