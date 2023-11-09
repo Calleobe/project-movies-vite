@@ -35,7 +35,7 @@ const MovieDetail = ({ apiKey }) => {
     fetchMovie();
   }, [id, apiKey]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className="LoadingSpinner"></div>;
   if (error) return <div>Error: {error}</div>;
 
   // Calculate the rating with one decimal point
