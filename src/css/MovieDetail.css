@@ -29,6 +29,10 @@
   font-size: 18px;
 }
 
+.MovieDetail strong {
+  font-family: "Roboto", sans-serif;
+}
+
 /* Styles for larger screens (e.g., tablets or desktops) */
 @media (min-width: 768px) {
   .MovieDetail {

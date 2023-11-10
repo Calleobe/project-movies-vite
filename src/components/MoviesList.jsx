@@ -5,6 +5,8 @@ import "../css/MoviesList.css";
 const MoviesList = ({ apiKey }) => {
   const [movies, setMovies] = useState([]);
   const [listType, setListType] = useState("popular"); // New state for list type
+  const [loading, setLoading] = useState(true);
+  const [loadedImages, setLoadedImages] = useState([]); // Initialize loadedImages state
 
   // Object mapping list types to their API endpoints
   const apiEndpoints = {
@@ -13,8 +15,7 @@ const MoviesList = ({ apiKey }) => {
     top_rated: "top_rated",
     upcoming: "upcoming",
   };
-  const [loading, setLoading] = useState(true);
-
+  
   useEffect(() => {
     const fetchMovies = async () => {
       try {
@@ -51,22 +52,27 @@ const MoviesList = ({ apiKey }) => {
       </div>
 
       <div className="MoviesList">
-        {loading ? (
-          <div className="LoadingSpinner"></div> // Loading indicator
-        ) : (
-          movies.map((movie) => (
-            <Link key={movie.id} to={`/movies/${movie.id}`}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-              />
-              <div className="MovieDetails">
-                <h2>{movie.title}</h2>
-              </div>
-            </Link>
-          ))
-        )}
-      </div>
+      {loading ? (
+        <div className="LoadingSpinner"></div>
+      ) : (
+        movies.map((movie) => (
+          <Link key={movie.id} to={`/movies/${movie.id}`} className="MovieItem">
+            <div className={`PlaceholderText ${loadedImages.includes(movie.id) ? 'hide' : ''}`}>
+              Loading Image... hold tight!
+            </div>
+            <img
+              className="MovieImage"
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={movie.title}
+              onLoad={() => setLoadedImages((prev) => [...prev, movie.id])}
+            />
+            <div className="MovieDetails">
+              <h2>{movie.title}</h2>
+            </div>
+          </Link>
+        ))
+      )}
+    </div>
     </>
   );
 };
