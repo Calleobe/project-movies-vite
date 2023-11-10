@@ -71,11 +71,13 @@ const MovieDetail = ({ apiKey }) => {
 
       <div className="production-companies">
         <strong>Production companies:</strong>
-        {movie?.production_companies?.map((company) => (
-          <div key={company.id}>
-            <Link to={`/production/${company.id}`}>{company.name}</Link>
-          </div>
-        ))}
+        <div className="production-pills">
+          {movie?.production_companies?.map((company) => (
+            <Link key={company.id} to={`/production/${company.id}`} className="production-pill">
+              {company.name}
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

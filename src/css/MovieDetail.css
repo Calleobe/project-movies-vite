@@ -49,6 +49,30 @@
   }
 }
 
+.production-companies {
+  margin-top: 20px;
+}
+
+.production-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.production-pill {
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid #007bff;
+  border-radius: 20px;
+  padding: 8px 16px;
+  margin: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.production-pill:hover {
+  background-color: #0056b3;
+}
 
 /* CSS for the "Back" button */
 .backLink {
