@@ -12,11 +12,11 @@ function App() {
       <Routes>
         <Route path="/" element={<MoviesList apiKey={API_KEY} />} />
         <Route path="/movies/:id" element={<MovieDetail apiKey={API_KEY} />} />
-        <Route path="*" element={<NotFound />} />
         <Route
           path="/production/:companyId"
-          element={<ProductionDetail apiKey={API_KEY} />}
+          element={<ProductionDetail apiKey={API_KEY}/>}
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

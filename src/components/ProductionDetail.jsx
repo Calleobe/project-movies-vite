@@ -16,6 +16,7 @@ const ProductionDetail = ({ apiKey }) => {
         const detailsResponse = await fetch(
           `https://api.themoviedb.org/3/company/${companyId}?api_key=${apiKey}`
         );
+
         if (!detailsResponse.ok) {
           if (detailsResponse.status === 404) {
             navigate("/404");
@@ -23,12 +24,14 @@ const ProductionDetail = ({ apiKey }) => {
             throw new Error("Network response was not ok");
           }
         }
+
         const detailsData = await detailsResponse.json();
         setCompanyDetails(detailsData);
 
         const moviesResponse = await fetch(
           `https://api.themoviedb.org/3/company/${companyId}/movies?api_key=${apiKey}`
         );
+
         if (!moviesResponse.ok) {
           if (moviesResponse.status === 404) {
             navigate("/404");
@@ -36,6 +39,7 @@ const ProductionDetail = ({ apiKey }) => {
             throw new Error("Network response was not ok");
           }
         }
+
         const moviesData = await moviesResponse.json();
         setCompanyMovies(moviesData.results);
       } catch (error) {
@@ -46,16 +50,16 @@ const ProductionDetail = ({ apiKey }) => {
     };
 
     fetchCompanyDetailsAndMovies();
-  }, [companyId, apiKey]);
+  }, [companyId, apiKey, navigate]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className="LoadingSpinner"></div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
     <div className="ProdList">
-      <button onClick={() => navigate(-1)} className="backLink">
-        Back
-      </button>
+      <Link to="/" className="backLink">
+        Back to Movies
+      </Link>
       <div>
         {companyDetails?.logo_path && (
           <img
@@ -83,7 +87,8 @@ const ProductionDetail = ({ apiKey }) => {
 
       {companyDetails?.parent_company && (
         <p>
-          <strong>Parent Company:</strong> {companyDetails.parent_company.name}
+          <strong>Parent Company:</strong>{" "}
+          {companyDetails.parent_company.name}
         </p>
       )}
 
