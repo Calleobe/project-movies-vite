@@ -2,18 +2,42 @@
 
 body {
   font-family: "Bebas Neue", sans-serif;
+  margin: 0;
+  padding: 10px;
+  flex-direction: column;
 }
 
 .MoviesList {
   display: flex;
   flex-wrap: wrap;
+  margin: -2px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.header .logo {
+  margin: 0;
+  background-color: #304ffe;
+  color: #fff;
+  border-radius: 4px;
+  padding: 2px 10px 2px 10px;
 }
 
 .MoviesList a {
   width: 80%;
+  font-size: 22px;
   position: relative;
   color: #fff;
   text-decoration: none;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  -webkit-text-stroke: 1px #2222228e; /* Text stroke for Webkit browsers */
 }
 
 @media (min-width: 370px) {
@@ -36,6 +60,16 @@ body {
 
 .MoviesList a img {
   width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.MoviesList a:hover img {
+  transform: scale(0.978);
+}
+
+.MoviesList a:hover {
+  animation: growShadow 0.3s forwards;
 }
 
 .MoviesList .MovieDetails {
@@ -44,9 +78,11 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.75);
+
   display: none;
   padding: 20px;
+
+  animation: slideIn 0.5s ease forwards;
 }
 
 .MoviesList .MovieDetails h1 {
@@ -59,15 +95,16 @@ body {
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: flex-end;
+  opacity: 1;
 }
-/* CSS for the centered spinner */
+
 .LoadingSpinner {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 4px solid rgba(0, 0, 0, 0.1);
-  border-top: 4px solid #007bff; /* Adjust the color as needed */
+  border-top: 4px solid #304ffe;
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -85,14 +122,14 @@ body {
 
 .movie-list-dropdown {
   font-size: 16px;
-  padding: 10px 20px;
-  border: 2px solid #304ffe;
-  border-radius: 8px;
+  padding: 10px 10px;
+  border: 4px solid #304ffe;
+  border-radius: 4px;
   background-color: white;
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
-  margin: 20px;
+
   outline: none;
   transition: all 0.3s ease;
 }
@@ -105,4 +142,24 @@ body {
 
 .movie-list-dropdown option {
   padding: 10px;
+}
+
+@keyframes growShadow {
+  from {
+    box-shadow: inset 0 0 0 0 rgba(48, 78, 254, 0);
+  }
+  to {
+    box-shadow: inset 0 0 0 10px rgba(48, 78, 254, 1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

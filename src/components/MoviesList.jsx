@@ -35,23 +35,25 @@ const MoviesList = ({ apiKey }) => {
   }, [apiKey, listType]); // Adding listType as a dependency
 
   return (
-    <div>
-      <select
-        value={listType}
-        onChange={(e) => setListType(e.target.value)}
-        className="movie-list-dropdown"
-      >
-        <option value="popular">Popular</option>
-        <option value="now_playing">Now Playing</option>
-        <option value="top_rated">Top Rated</option>
-        <option value="upcoming">Upcoming</option>
-      </select>
+    <>
+      <div className="header">
+        <h1 className="logo">Movies To Watch</h1>
+        <select
+          value={listType}
+          onChange={(e) => setListType(e.target.value)}
+          className="movie-list-dropdown"
+        >
+          <option value="popular">Popular</option>
+          <option value="now_playing">Now Playing</option>
+          <option value="top_rated">Top Rated</option>
+          <option value="upcoming">Upcoming</option>
+        </select>
+      </div>
+
       <div className="MoviesList">
         {loading ? (
-          // Display a loading message or spinner while waiting for data
-          <div className="LoadingSpinner"></div>
+          <div className="LoadingSpinner"></div> // Loading indicator
         ) : (
-          // Display the list of movies when data is ready
           movies.map((movie) => (
             <Link key={movie.id} to={`/movies/${movie.id}`}>
               <img
@@ -65,7 +67,7 @@ const MoviesList = ({ apiKey }) => {
           ))
         )}
       </div>
-    </div>
+    </>
   );
 };
 
