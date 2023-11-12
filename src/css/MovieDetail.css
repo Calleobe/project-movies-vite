@@ -10,6 +10,8 @@
 .MovieDetail h1 {
   font-size: 24px;
   margin: 0;
+  padding-top: 25px;
+  padding-bottom: 10px;
 }
 
 .MovieDetail img {
@@ -27,10 +29,6 @@
   font-family: "Roboto", sans-serif;
   margin-top: 10px;
   font-size: 18px;
-}
-
-.MovieDetail strong {
-  font-family: "Roboto", sans-serif;
 }
 
 /* Styles for larger screens (e.g., tablets or desktops) */
@@ -53,17 +51,34 @@
   }
 }
 
-.production-companies {
+.ProductionCompanies {
   margin-top: 20px;
 }
 
-.production-pills {
+.ExtraData {
+  display: flex;
+  flex-direction: column; /* Set flex direction to column */
+  align-items: center; /* Align items in the center vertically */
+}
+
+.RelDate {
+  margin: 0;
+}
+
+.RatingMovie {
+  background-color: rgba(169, 169, 169, 0.3); 
+  border-radius: 10px; 
+  padding: 10px; 
+  display: inline-block; 
+}
+
+.ProductionPills {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.production-pill {
+.ProductionPills .ProductionPill {
   background-color: #007bff;
   color: #fff;
   border: 1px solid #007bff;
@@ -74,23 +89,8 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.production-pill:hover {
+.ProductionPills .ProductionPill:hover {
   background-color: #0056b3;
-}
-
-/* CSS for the "Back" button */
-.backLink {
-  display: inline-block;
-  margin-bottom: 10px;
-  text-decoration: none;
-  padding: 10px 20px;
-  background-color: #0073e6; /* Change to your preferred button color */
   color: #fff;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.3s;
 }
 
-.backLink:hover {
-  background-color: #005bb9; /* Change to your preferred button color on hover */
-}

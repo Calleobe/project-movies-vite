@@ -1,10 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap");
-
-body {
-  font-family: "Bebas Neue", sans-serif;
-  margin: 0;
-  padding: 10px;
-  flex-direction: column;
+.Wrapper {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .MoviesList {
@@ -13,14 +9,14 @@ body {
   margin: -2px;
 }
 
-.header {
+.Header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
 }
 
-.header .logo {
+.Header .Logo {
   margin: 0;
   background-color: #304ffe;
   color: #fff;
@@ -98,19 +94,6 @@ body {
   opacity: 1;
 }
 
-.LoadingSpinner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 4px solid rgba(0, 0, 0, 0.1);
-  border-top: 4px solid #304ffe;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 2s linear infinite;
-}
-
 .PlaceholderText {
   position: absolute;
   top: 0;
@@ -142,7 +125,7 @@ body {
   }
 }
 
-.movie-list-dropdown {
+.MovieListDropdown {
   font-size: 16px;
   padding: 10px 10px;
   border: 4px solid #304ffe;
@@ -156,13 +139,13 @@ body {
   transition: all 0.3s ease;
 }
 
-.movie-list-dropdown:hover,
-.movie-list-dropdown:focus {
+.MovieListDropdown:hover,
+.MovieListDropdown:focus {
   border-color: #1a237e;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.movie-list-dropdown option {
+.MovieListDropdown option {
   padding: 10px;
 }
 

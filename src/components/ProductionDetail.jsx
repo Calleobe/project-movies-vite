@@ -57,7 +57,7 @@ const ProductionDetail = ({ apiKey }) => {
 
   return (
     <div className="ProdList">
-      <Link to="/" className="backLink">
+      <Link to="/" className="BackLink">
         Back to Movies
       </Link>
       <div>
@@ -105,13 +105,15 @@ const ProductionDetail = ({ apiKey }) => {
       {companyMovies.length > 0 && (
         <>
           <h2>Movies Produced:</h2>
-          <ul>
-            {companyMovies.map((movie) => (
-              <li key={movie.id}>
-                <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
-              </li>
-            ))}
-          </ul>
+            <ul className="ProducedMoviesList">
+              {companyMovies.map((movie) => (
+                <li key={movie.id}>
+                  <Link to={`/movies/${movie.id}`} className="ProducedMovieLink">
+                  {movie.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
         </>
       )}
     </div>

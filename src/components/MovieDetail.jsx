@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom"; // Import useNavigate
+import { Footer } from "../components/Footer"
 import "../css/MovieDetail.css";
 
 const MovieDetail = ({ apiKey }) => {
@@ -42,16 +43,17 @@ const MovieDetail = ({ apiKey }) => {
   // Calculate the rating with one decimal point
   const rating = movie.vote_average.toFixed(1);
 
-  <div className="production-companies">
+  <div className="ProductionCompanies">
     {movie?.production_companies?.map((company) => (
       <Link key={company.id} to={`/production/${company.id}`}>
         {company.name}
       </Link>
     ))}
   </div>;
+  
   return (
     <div className="MovieDetail">
-      <Link to="/" className="backLink">
+      <Link to="/" className="BackLink">
         Back to Movies
       </Link>
 
@@ -62,23 +64,22 @@ const MovieDetail = ({ apiKey }) => {
       />
       <p>{movie?.overview}</p>
 
-      <div>
-        <strong>Release Date:</strong> {movie?.release_date}
-      </div>
-      <div>
-        <strong>Rating:</strong> {rating} &#11088; {/* Star emoji */}
+      <div className="ExtraData">
+        <p className="RelDate">Release Date: {movie?.release_date}</p>
+        <p className="RatingMovie">Rating: {rating} &#11088;</p> {/* Star emoji */}
       </div>
 
-      <div className="production-companies">
-        <strong>Production companies:</strong>
-        <div className="production-pills">
+      <div className="ProductionCompanies">
+        <p>Production companies:</p>
+        <div className="ProductionPills">
           {movie?.production_companies?.map((company) => (
-            <Link key={company.id} to={`/production/${company.id}`} className="production-pill">
+            <Link key={company.id} to={`/production/${company.id}`} className="ProductionPill">
               {company.name}
             </Link>
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Footer } from "./Footer";
 import "../css/MoviesList.css";
+
 
 const MoviesList = ({ apiKey }) => {
   const [movies, setMovies] = useState([]);
@@ -37,12 +39,12 @@ const MoviesList = ({ apiKey }) => {
 
   return (
     <>
-      <div className="header">
-        <h1 className="logo">Movies To Watch</h1>
+      <div className="Header">
+        <h1 className="Logo">Movies To Watch</h1>
         <select
           value={listType}
           onChange={(e) => setListType(e.target.value)}
-          className="movie-list-dropdown"
+          className="MovieListDropdown"
         >
           <option value="popular">Popular</option>
           <option value="now_playing">Now Playing</option>
@@ -51,6 +53,7 @@ const MoviesList = ({ apiKey }) => {
         </select>
       </div>
 
+      <div className="Wrapper">
       <div className="MoviesList">
       {loading ? (
         <div className="LoadingSpinner"></div>
@@ -72,6 +75,8 @@ const MoviesList = ({ apiKey }) => {
           </Link>
         ))
       )}
+    </div>
+    <Footer />
     </div>
     </>
   );
