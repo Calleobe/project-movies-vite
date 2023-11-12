@@ -76,7 +76,7 @@ const MoviesList = ({ apiKey }) => {
         ))
       )}
     </div>
-    <Footer />
+    {!loading && <Footer />}
     </div>
     </>
   );
