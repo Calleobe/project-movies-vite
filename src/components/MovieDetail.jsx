@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom"; // Import useNavigate
-import { Footer } from "../components/Footer"
 import "../css/MovieDetail.css";
 
 const MovieDetail = ({ apiKey }) => {
@@ -79,7 +78,6 @@ const MovieDetail = ({ apiKey }) => {
           ))}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
