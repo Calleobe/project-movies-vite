@@ -25,7 +25,7 @@
 }
 
 .MoviesList a {
-  width: 80%;
+  width: 100%;
   font-size: 22px;
   position: relative;
   color: #fff;
@@ -36,7 +36,22 @@
   -webkit-text-stroke: 1px #2222228e; /* Text stroke for Webkit browsers */
 }
 
-@media (min-width: 370px) {
+@media (max-width: 320px) {
+  .Header {
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .Header .Logo {
+    margin-bottom: 10px; /* Add margin to separate logo from the next item */
+    font-size: 24px; /* Reduce font size */
+    padding: 5px; /* Adjust padding */
+  }
+
+  /* You can add more adjustments for other elements within the header */
+}
+
+@media (min-width: 250px) {
   .MoviesList a {
     width: 50%;
   }
